@@ -1,0 +1,23 @@
+<style>
+  .wrapper {
+    border: 1px solid #f00;
+  }
+
+  .selected {
+    border-bottom: 1px solid #f00;
+  }
+</style>
+
+{{selectedItens | json}}
+<div class="wrapper">
+  <form [formGroup]="form">
+    <input type="text" class="w-full p-2 border" formControlName="search" (focus)="show = true">
+    <ng-container (mouseover)="show=true" (mouseout)="show=false">
+      <ul *ngIf="show">
+        <li *ngFor="let item of itensToList" (click)="selectItem(item)" [class.selected]="selectedItens.includes(item)">
+          {{item.label}}
+        </li>
+      </ul>
+    </ng-container>
+  </form>
+</div>

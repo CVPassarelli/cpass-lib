@@ -5,7 +5,14 @@
   "projects": {
     "cpass-lib": {
       "projectType": "application",
-      "schematics": {},
+      "schematics": {
+       "@schematics/angular:component": {
+          "style": "none",
+          "skipTests": false,
+          "standalone": true,
+          "changeDetection": "OnPush"
+       }
+      },
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
